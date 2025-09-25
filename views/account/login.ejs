@@ -6,9 +6,7 @@
   } %>
 
   <!-- Flash message (if available) -->
-  <% if (message && message.length > 0) { %>
-    <div class="flash-message"><%= message %></div>
-  <% } %>
+  <div class="flash-message"><%- messages() %></div>
 
   <!-- Login Form -->
   <form action="/account/login" method="post" class="login-form">

@@ -6,9 +6,7 @@
   } %>
 
   <!-- Flash message (if available) -->
-  <% if (message && message.length > 0) { %>
-    <div class="flash-message"><%= message %></div>
-  <% } %>
+  <div class="flash-message"><%- messages() %></div>
 
   <!-- Registration Form -->
   <form action="/account/register" method="post" class="register-form">

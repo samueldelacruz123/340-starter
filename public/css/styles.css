@@ -326,8 +326,15 @@ main h3 {
 /* Flash Message Styling */
 .flash-message {
   color: #e74c3c;
-  margin-bottom: 1rem;
   text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.flash-message li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* ===== Login Page Styling ===== */
