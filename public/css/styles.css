@@ -7,7 +7,7 @@
   padding: 0;
 }
 
-/* 📱 Small screens: shrink height & center links */
+/* ===== Small Screens ===== */
 @media (max-width: 600px) {
   nav ul {
     justify-content: center;
@@ -19,7 +19,7 @@
   }
 }
 
-/* Larger screens */
+/* ===== Large Screens ===== */
 @media screen and (min-width: 760px) {
   body {
     /* Background image */
@@ -70,7 +70,7 @@
   }
 }
 
-/* Header */
+/* ===== Header ===== */
 #top-header {
   display: flex;
   justify-content: space-between;
@@ -92,7 +92,7 @@
   color: #444;
 }
 
-/* Navigation */
+/* ===== Navigation ===== */
 nav {
   background-color: #2d2d3a;
   padding: 0.5rem 1rem;
@@ -119,7 +119,7 @@ nav li:hover {
   background-color: #444;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 1rem;
@@ -141,13 +141,13 @@ main h3 {
   margin-bottom: 0.5rem
 }
 
-/* Intro Section */
+/* ===== Intro Sections ===== */
 .intro {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-/* Feature (car card) */
+/* ===== Features (car card) ===== */
 .feature-card {
   position: relative;
   text-align: left;
@@ -191,7 +191,7 @@ main h3 {
   font-weight: bold;
 }
 
-/* REviews */
+/* ===== Reviews ===== */
 .reviews {
   margin-bottom: 1.5rem;
 }
@@ -201,7 +201,7 @@ main h3 {
   padding-left: 1.25rem;
 }
 
-/* Upgrades grid */
+/* ===== Upgrades Grid ===== */
 .upgrades {
   margin-bottom: 1.5rem;
 }
@@ -237,7 +237,7 @@ main h3 {
   margin-top: 0.5rem;
 } 
 
-/* Inventory Grid */
+/* ===== Inventory Grid ===== */
 #inv-display {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -323,7 +323,24 @@ main h3 {
   margin-bottom: 0.5rem;
 }
 
-/* Flash Message Styling */
+/* ===== Valid/invalid Inputs ===== */
+input:required:invalid:focus {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+input:required:invalid:focus:not(:placeholder-shown),
+input:required:invalid:focus:invalid {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+input:required:valid {
+  background-color: #2ecc71;
+}
+
+
+/* ===== Flash Message ===== */
 .flash-message {
   color: #e74c3c;
   text-align: center;
@@ -351,7 +368,6 @@ main.login-page h1 {
   margin-bottom: 1rem;
 }
 
-/* Login form container */
 .login-form {
   background: #2c3e50; /* dark background like screenshot */
   padding: 2rem;
