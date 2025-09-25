@@ -322,3 +322,159 @@ main h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
+/* Flash Message Styling */
+.flash-message {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ===== Login Page Styling ===== */
+main.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+main.login-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Login form container */
+.login-form {
+  background: #2c3e50; /* dark background like screenshot */
+  padding: 2rem;
+  border-radius: 8px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.login-form label {
+  margin: 0.5rem 0 0.25rem;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.login-form button {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  background: #3498db;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form button:hover {
+  background: #2980b9;
+}
+
+main.login-page p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+main.login-page a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+main.login-page a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Register Page Styling ===== */
+main.register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+main.register-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.register-form {
+  background: #2c3e50;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.register-form label {
+  margin: 0.5rem 0 0.25rem;
+  font-weight: bold;
+}
+
+.register-form input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Checkbox styling */
+.register-form #togglePassword {
+  margin-right: 0.5rem;
+  transform: scale(1.1);
+  cursor: pointer;
+  position: relative;
+  top: 9px; /* moves checkbox downward */
+}
+
+.register-form .password-toggle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.register-form button {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  background: #27ae60;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-form button:hover {
+  background: #1e8449;
+}
+
+main.register-page p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+main.register-page a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+main.register-page a:hover {
+  text-decoration: underline;
+}
