@@ -10,7 +10,7 @@ async function buildIdLogin(req, res, next) {
         title: "Login",
         nav,
         errors: null,
-        message: req.flash("notice")[0] || "",
+        // message: req.flash("notice")[0] || "",
     })
 }
 
@@ -23,7 +23,7 @@ async function buildRegister(req, res, next) {
         title: "Register",
         nav,
         errors: null,
-        message: req.flash("notice")[0] || "",
+        // message: req.flash("notice")[0] || "",
     })
 }
 
