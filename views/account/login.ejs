@@ -22,10 +22,28 @@
   <!-- Login Form -->
   <form id="login-form" action="/account/login" method="post" class="login-form">
     <label for="account_email">Email:</label>
-    <input type="email" id="account_email" name="account_email" required value="<%= locals.account_email || '' %>">
+    <input type="email" id="account_email" name="account_email" value="<%= locals.account_email %>" required>
 
     <label for="account_password">Password:</label>
     <input type="password" id="account_password" name="account_password" required>
+
+    <div class="password-toggle">
+    <input type="checkbox" id="togglePassword">
+    <label for="togglePassword">Show Password</label>
+    </div>
+
+    <script>
+    const passwordField = document.getElementById("account_password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("change", function () {
+        if (this.checked) {
+        passwordField.type = "text"; // show password
+        } else {
+        passwordField.type = "password"; // hide password
+        }
+    });
+    </script>
 
     <button type="submit">Login</button>
   </form>
