@@ -141,4 +141,50 @@ validate.checkInventoryData = async (req, res, next) => {
     next()
 }
 
+/* **********************************
+*  Validate edited inventory
+* ********************************* */
+validate.checkEditData = async (req, res, next) => {
+    const {
+        classificationList,
+        inv_make,
+        inv_model,
+        inv_year,
+        inv_description,
+        inv_image,
+        inv_thumbnail,
+        inv_price,
+        inv_miles,
+        inv_color,
+        inv_id
+    } = req.body
+
+    let errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+        // only keep errors that have a custom .withMessage()
+        let filteredErrors = errors.array().filter(err => err.msg !== 'Invalid value')
+
+        let nav = await Util.getNav()
+        res.render("inventory/edit-inventory", {
+            title: "Edit " + itemName,
+            nav,
+            classificationList,
+            errors: filteredErrors,
+            inv_make,
+            inv_model,
+            inv_year,
+            inv_description,
+            inv_image,
+            inv_thumbnail,
+            inv_price,
+            inv_miles,
+            inv_color,
+            inv_id
+        })
+        return
+    }
+    next()
+}
+
 module.exports = validate

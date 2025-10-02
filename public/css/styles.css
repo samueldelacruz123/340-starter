@@ -603,3 +603,62 @@ main.form-container h1 {
 .management-links li a:hover {
   background-color: #005fa3;
 }
+
+/* Classification Select Dropdown */
+#classificationList {
+  display: block;
+  margin: 1rem auto 2rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#classificationList:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.4);
+  outline: none;
+}
+
+/* Inventory Display Table */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+#inventoryDisplay thead {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+}
+
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#inventoryDisplay tbody tr:hover {
+  background-color: #eef6fc;
+}
+
+/* Links in table */
+#inventoryDisplay a {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#inventoryDisplay a:hover {
+  text-decoration: underline;
+}

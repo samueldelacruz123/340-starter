@@ -1,6 +1,8 @@
 const utilities = require("../utilities/");
 const accountModel = require("../models/account-model");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 /* ****************************************
 *  Deliver login view
@@ -82,31 +84,60 @@ async function loginAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_email, account_password } = req.body
 
-  const account = await accountModel.loginAccount(account_email)
+  const accountData = await accountModel.getAccountByEmail(account_email)
 
-  if (!account) {
+  if (!accountData) {
     req.flash("notice", "Email not found.")
-    return res.status(400).render("account/login", {
+    res.status(400).render("account/login", {
       title: "Login",
       nav,
       errors: null,
       account_email
     })
+    return
   }
 
-  if (account.account_password !== account_password) {
-    req.flash("notice", "Incorrect password.")
-    return res.status(400).render("account/login", {
-      title: "Login",
-      nav,
-      errors: null,
-      account_email
-    })
-  }
+  try {
+    if (await bcrypt.compare(account_password, accountData.account_password)) {
+      delete accountData.account_password
 
-  // Login successful
-  req.flash("notice", `Welcome back, ${account.account_firstname}!`)
-  res.redirect("/") // Redirect to the homepage or dashboard after successful login
+      const accessToken = jwt.sign(
+        accountData, 
+        process.env.ACCESS_TOKEN_SECRET, 
+        { expiresIn: "1h" }
+      )
+
+      if (process.env.NODE_ENV === "development") {
+        res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600000 })
+      } else {
+        res.cookie("jwt", accessToken, { httpOnly: true, secure: true, maxAge: 3600000 })
+      }
+
+      return res.redirect("/account/management")
+    } else {
+      req.flash("notice", "Please check your credentials and try again.")
+      res.status(400).render("account/login", {
+        title: "Login",
+        nav,
+        errors: null,
+        account_email,
+      })
+    }
+  } catch (error) {
+    throw new Error('Access Forbidden')
+  }
 }
 
-module.exports = { buildIdLogin, buildRegister, registerAccount, loginAccount }
+/* ****************************************
+*  Deliver Account Management View
+* *************************************** */
+async function buildManagement(req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("account/management", {
+        title: "Account Management",
+        nav,
+        errors: null,
+    })
+}
+
+module.exports = { buildIdLogin, buildRegister, registerAccount, loginAccount, buildManagement }
