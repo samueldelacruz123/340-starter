@@ -355,7 +355,7 @@ input:required:valid {
 }
 
 /* ===== Login Page Styling ===== */
-main.login-page {
+section.login-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -363,7 +363,7 @@ main.login-page {
   min-height: 80vh;
 }
 
-main.login-page h1 {
+section.login-page h1 {
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -406,17 +406,17 @@ main.login-page h1 {
   background: #2980b9;
 }
 
-main.login-page p {
+section.login-page p {
   margin-top: 1rem;
   text-align: center;
 }
 
-main.login-page a {
+section.login-page a {
   color: #3498db;
   text-decoration: none;
 }
 
-main.login-page a:hover {
+section.login-page a:hover {
   text-decoration: underline;
 }
 
@@ -661,4 +661,144 @@ main.form-container h1 {
 
 #inventoryDisplay a:hover {
   text-decoration: underline;
+}
+
+/* ===== Account Management Page ===== */
+section.management-page {
+  display: block;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+.management-page h1 {
+  margin-bottom: 1rem;
+  color: #0047ab;
+  text-align: left;
+}
+
+.management-page h2 {
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+.management-page h3 {
+  margin-top: 2rem;
+  color: #444;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.25rem;
+}
+
+/* Links */
+.management-page a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.management-page a:hover {
+  text-decoration: underline;
+}
+
+/* Paragraphs */
+.management-page p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #222;
+}
+
+/* Flash Messages */
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  section.management-page {
+    padding: 1.25rem;
+    margin: 1rem;
+  }
+
+  .management-page h1,
+  .management-page h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ===== Edit Account Page ===== */
+main.edit-account-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem 1rem;
+}
+
+.edit-account-page h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0047ab;
+}
+
+/* Card style for each form section */
+.edit-account-page .form-section {
+  background: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.edit-account-page .form-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.account-form label {
+  display: block;
+  margin: 0.5rem 0 0.25rem;
+  font-weight: bold;
+}
+
+.account-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.account-form button {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  background: #0047ab;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.account-form button:hover {
+  background: #003580;
+}
+
+/* Password info text */
+.password-info {
+  font-size: 0.9rem;
+  color: #555;
+  background-color: #eef6fc;
+  border-left: 4px solid #0077cc;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
 }

@@ -32,4 +32,28 @@ router.get("/management",
   Util.checkLogin, 
   Util.handleErrors(accountController.buildManagement))
 
+// Edit account info page
+router.get("/edit/:account_id",
+  Util.checkLogin,
+  Util.handleErrors(accountController.buildEditAccount))
+
+// Process Edit Account Info page
+router.post("/edit-account",
+  accValidate.editAccountRules(),
+  accValidate.checkEditData,
+  Util.handleErrors(accountController.editAccount)
+)
+
+// Process Password Edit
+router.post(
+  "/edit-password",
+  accValidate.editPasswordRules(),
+  accValidate.checkEditData,
+  Util.handleErrors(accountController.editAccountPassword)
+)
+
+// Process Logout
+// Logout
+router.get("/logout", Util.handleErrors(accountController.logoutAccount))
+
 module.exports = router

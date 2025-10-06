@@ -125,6 +125,7 @@ Util.checkJWTToken = (req, res, next) => {
     }
     res.locals.accountData = accountData
     res.locals.loggedin = 1
+    res.locals.firstname = accountData.account_firstname
     next()
    })
  } else {
@@ -143,6 +144,21 @@ Util.checkLogin = (req, res, next) => {
     return res.redirect("/account/login")
   }
 }
+
+/* ****************************************
+ *  Check Employee/Admin Authorization
+ * ************************************ */
+Util.checkEmployeeOrAdmin = (req, res, next) => {
+  if (res.locals.loggedin && res.locals.accountData) {
+    const accountType = res.locals.accountData.account_type
+    if (accountType === "Employee" || accountType === "Admin") {
+      return next()
+    }
+  }
+  req.flash("notice", "You do not have permission to access that resource.")
+  return res.redirect("/account/login")
+}
+
 
 /* ****************************************
  * Middleware For Handling Errors
