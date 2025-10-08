@@ -60,15 +60,16 @@ Util.buildClassificationGrid = async function(data){
 }
 
 /* **************************************
-* Build the detail view HTML (will need styling)
+* Build the detail view HTML (with Add to Favorites button)
 * ************************************ */
-Util.buildDetailView = function(vehicle) {
+Util.buildDetailView = function(vehicle, loggedIn, accountData = null) {
   const price = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   }).format(vehicle.inv_price)
 
   const mileage = new Intl.NumberFormat("en-US").format(vehicle.inv_miles)
+
 
   let html = `
     <section class="vehicle-detail">
@@ -82,8 +83,20 @@ Util.buildDetailView = function(vehicle) {
         <p><strong>Color:</strong> ${vehicle.inv_color}</p>
         <p><strong>Description:</strong> ${vehicle.inv_description}</p>
       </div>
-    </section>
   `
+
+  // ✅ Only show the "Add to Favorites" button if logged in
+  if (loggedIn) {
+    html += `
+      <form action="/favorites/add" method="POST">
+        <input type="hidden" name="inv_id" value="${vehicle.inv_id}">
+        <input type="hidden" name="account_id" value="${accountData ? accountData.account_id : ''}">
+        <button type="submit" class="favorite-btn">❤️ Add to Favorites</button>
+      </form>
+    `
+  }
+
+  html += `</section>`
   return html
 }
 

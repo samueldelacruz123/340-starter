@@ -802,3 +802,107 @@ main.edit-account-page {
   border-radius: 4px;
   margin-bottom: 1rem;
 }
+
+/* ===== Favorites Page ===== */
+section.favorites-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.favorites-page h1 {
+  text-align: center;
+  color: #0047ab;
+  margin-bottom: 1.5rem;
+}
+
+/* Favorite list layout */
+.favorite-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual favorite card */
+.favorite-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  padding: 1rem;
+  max-width: 25rem;
+}
+
+.favorite-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image styling */
+.favorite-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* Info section */
+.favorite-info h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.favorite-info p {
+  font-weight: bold;
+  color: #007700;
+  margin: 0.25rem 0 0.75rem;
+}
+
+/* Remove button */
+.remove-form {
+  margin-top: auto;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #0047ab;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #002f73;
+}

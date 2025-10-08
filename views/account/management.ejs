@@ -19,9 +19,14 @@
     <!-- Greeting -->
     <h2>Welcome <%= accountData.account_firstname %></h2>
 
-    <!-- Edit account link (for all users) -->
+    <!-- Edit account link -->
     <p>
         <a href="/account/edit/<%= accountData.account_id %>">Edit Account Information</a>
+    </p>
+
+    <!-- ✅ New Favorites link -->
+    <p>
+        <a href="/favorites" class="favorites-link">View My Favorites</a>
     </p>
 
     <!-- Employee/Admin only section -->

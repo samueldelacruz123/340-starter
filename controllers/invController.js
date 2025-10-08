@@ -33,7 +33,10 @@ invCont.buildByInventoryId = async function(req, res, next) {
     return next(new Error("No vehicle found."))
   }
 
-  const itemHTML = utilities.buildDetailView(itemData)
+  const loggedIn = res.locals.loggedin
+  const accountData = res.locals.accountData
+
+  const itemHTML = utilities.buildDetailView(itemData, loggedIn, accountData)
 
   res.render("./inventory/detail", {
     title: `${itemData.inv_year} ${itemData.inv_make} ${itemData.inv_model}`,

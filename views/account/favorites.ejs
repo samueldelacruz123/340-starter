@@ -1,0 +1,50 @@
+<section class="favorites-page">
+    <% if (title) { %>
+        <h1><%= title %></h1>
+    <% } else { res.redirect('/'); } %>
+
+    <!-- Flash messages / Errors -->
+    <div class="flash-message">
+        <%- messages() %>
+
+        <% if (errors && errors.length > 0) { %>
+        <ul class="notice">
+            <% errors.forEach(error => { %>
+            <li><%- error.msg %></li>
+            <% }) %>
+        </ul>
+        <% } %>
+    </div>
+
+    <% if (favorites && favorites.length > 0) { %>
+        <ul class="favorite-list">
+        <% favorites.forEach(fav => { %>
+            <li class="favorite-item">
+            <!-- Vehicle image links to detail page -->
+            <a href="/inv/detail/<%= fav.inv_id %>">
+                <img src="<%= fav.inv_image %>" alt="<%= fav.inv_make %> <%= fav.inv_model %>">
+            </a>
+
+            <div class="favorite-info">
+                <!-- Vehicle name also links to detail page -->
+                <h2>
+                <a href="/inv/detail/<%= fav.inv_id %>">
+                    <%= fav.inv_make %> <%= fav.inv_model %>
+                </a>
+                </h2>
+                <p>₱<%= fav.inv_price.toLocaleString() %></p>
+            </div>
+
+            <form action="/favorites/remove" method="post" class="remove-form">
+                <input type="hidden" name="favorite_id" value="<%= fav.favorite_id %>">
+                <button type="submit" class="remove-btn">Remove</button>
+            </form>
+            </li>
+        <% }) %>
+        </ul>
+    <% } else { %>
+        <p>You don’t have any favorites yet.</p>
+    <% } %>
+
+    <a href="/account/management" class="back-link">← Back to Account</a>
+</section>

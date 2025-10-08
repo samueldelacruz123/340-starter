@@ -246,3 +246,26 @@ WHERE inv_make = 'GM' AND inv_model = 'Hummer';
 UPDATE public.inventory
 SET inv_image = REPLACE (inv_image, '/images/', '/images/vehicles/'),
     inv_thumbnail = REPLACE (inv_thumbnail, '/images/', '/images/vehicles/');
+
+-- ============================================
+-- Table structure for table 'favorites'
+-- ============================================
+
+CREATE TABLE IF NOT EXISTS public.favorites
+(
+    favorite_id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL REFERENCES public.account(account_id) ON DELETE CASCADE,
+    inv_id INT NOT NULL REFERENCES public.inventory(inv_id) ON DELETE CASCADE,
+    date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT unique_favorite UNIQUE (account_id, inv_id)
+);
+
+-- ============================================
+-- Notes:
+-- - account_id links each favorite to a specific user
+-- - inv_id links it to a specific vehicle
+-- - ON DELETE CASCADE ensures favorites are removed automatically if
+--   a user account or vehicle is deleted
+-- - unique_favorite prevents the same user from favoriting the same
+--   vehicle more than once
+-- ============================================

@@ -8,6 +8,11 @@
         <%- include('../partials/navigation') %>
 
         <main>
+            <!-- Flash messages / Errors -->
+            <div class="flash-message">
+                <%- messages() %>
+            </div>
+
             <%- body %>
         </main>
 
